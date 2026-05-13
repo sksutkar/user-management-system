@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": "9ad0",
+      "department": "it",
+      "name": "swapnil sutkar",
+      "mobile": "9359071566",
+      "email": "swapnilsutkar7123@gmail.com",
+      "dob": "2026-05-20T18:30:00.000Z",
+      "gender": "male",
+      "salary": "25000",
+      "usercode": "712",
+      "status": true
+    },
+    {
+      "id": "a8e9",
+      "department": "it",
+      "name": "swapnil sutkar",
+      "mobile": "9359071566",
+      "email": "swapnilsutkar7123@gmail.com",
+      "dob": "2026-05-20T18:30:00.000Z",
+      "gender": "male",
+      "salary": "25000",
+      "usercode": "712",
+      "status": true
+    },
+    {
+      "id": "8395",
+      "department": "",
+      "name": "",
+      "mobile": "",
+      "email": "",
+      "dob": "",
+      "gender": "",
+      "salary": "",
+      "usercode": "",
+      "status": ""
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
