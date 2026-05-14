@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnakBarService } from 'src/app/Services/mat-snak-bar.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({
@@ -12,7 +14,7 @@ export class UserFormComponent {
 
   registerForm: FormGroup;
 
-  constructor(private _fb: FormBuilder, private _userService: UserService, private _dialogRef: MatDialogRef<UserFormComponent>) {
+  constructor(private _fb: FormBuilder, private _userService: UserService, private _dialogRef: MatDialogRef<UserFormComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private _SnackBar: MatSnakBarService) {
     this.registerForm = this._fb.group({
       department: '',
       name: '',
@@ -27,14 +29,27 @@ export class UserFormComponent {
   }
 
 
+  ngOnInit() {
+    this.registerForm.patchValue(this.data);
+  }
+
   onFormSubmit() {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
-      this._userService.adduser(this.registerForm.value).subscribe((res) => {
-        alert("User Added Successfully");
-        this._dialogRef.close();
+      if (this.data) {
 
-      })
+        this._userService.updateUser(this.data.id, this.registerForm.value).subscribe((res) => {
+          this._SnackBar.openSnackBar("User Updated Successfully", "Done");
+          this._dialogRef.close(true);
+        });
+      } else {
+        console.log(this.registerForm.value);
+        this._userService.adduser(this.registerForm.value).subscribe((res) => {
+          this._SnackBar.openSnackBar("User Added Successfully", "Done");
+          this._dialogRef.close(true);
+
+        });
+      }
+
     }
   }
 

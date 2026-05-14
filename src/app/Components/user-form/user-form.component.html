@@ -1,4 +1,4 @@
-<h1 mat-dialog-title class="title">ADD USER</h1>
+<h1 mat-dialog-title class="title">{{data?'Update User':'Add User'}}</h1>
  
 <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()" >
 
@@ -8,17 +8,17 @@
         <mat-form-field appearance="outline" class="mat-input" >
             <mat-label>Select Department</mat-label>
             <mat-select formControlName="department">
-                <mat-option value="it">IT</mat-option>
-                <mat-option value="hr">HR</mat-option>
-                <mat-option value="sales">Sales</mat-option>
-                <mat-option value="accounts">Accounts</mat-option>
-                <mat-option value="management">Management</mat-option>
+                <mat-option value="IT">IT</mat-option>
+                <mat-option value="HR">HR</mat-option>
+                <mat-option value="Sales">Sales</mat-option>
+                <mat-option value="Accounts">Accounts</mat-option>
+                <mat-option value="Management">Management</mat-option>
             </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="mat-input" >
             <mat-label>Name</mat-label>
-            <input matInput type="text" placeholder="Ex.Name" formControlName="name">
+            <input matInput type="text" placeholder="Ex.Enter Your Name" formControlName="name">
         </mat-form-field>
 
     </div>
@@ -40,7 +40,7 @@
 
         <mat-form-field appearance="outline" class="mat-input">
             <mat-label>Select Date</mat-label>
-            <input matInput [matDatepicker]="picker" placeholder="Ex.10/10/2020" formControlName="dob">
+            <input matInput [matDatepicker]="picker" placeholder="Ex.24/25/2026" formControlName="dob">
             <mat-hint>MM/DD/YYYY</mat-hint>
             <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -48,8 +48,8 @@
 
         <mat-radio-group aria-label="Select an option" class="mat-input" formControlName="gender">
              <mat-label>Gender</mat-label>
-            <mat-radio-button value="male">Male</mat-radio-button>
-            <mat-radio-button value="female">Female</mat-radio-button>
+            <mat-radio-button value="Male">Male</mat-radio-button>
+            <mat-radio-button value="Female">Female</mat-radio-button>
         </mat-radio-group>
 
     </div>
@@ -58,11 +58,11 @@
 
         <mat-form-field appearance="outline" class="mat-input" >
             <mat-label>Salary</mat-label>
-            <input matInput type="text" placeholder="Ex.9359xxxx66" formControlName="salary">
+            <input matInput type="text" placeholder="Ex.50000" formControlName="salary">
         </mat-form-field>
         <mat-form-field appearance="outline" class="mat-input" >
             <mat-label>User Code</mat-label>
-            <input matInput type="text" placeholder="Ex.abc@gmail.com" formControlName="usercode">
+            <input matInput type="text" placeholder="Ex.7123" formControlName="usercode">
         </mat-form-field>
 
     </div>
@@ -78,8 +78,8 @@
 </div>
 
 <div mat-dialog-actions style="justify-content: center;" class="action">
-    <button mat-raised-button class="btn-cancel" type="button">CANCEL</button>
-    <button mat-raised-button class="btn-save" type="submit">SAVE</button>
+    <button mat-raised-button class="btn-cancel" type="button" [matDialogClose]="false">CANCEL</button>
+    <button mat-raised-button class="btn-save" type="submit">{{data?'Update':'Save'}}</button>
 </div>
 
 </form>

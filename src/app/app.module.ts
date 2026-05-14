@@ -22,6 +22,12 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule} from '@angular/material/sort';
+import { MatTableModule} from '@angular/material/table';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
+
 
 
 
@@ -53,7 +59,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDatepickerModule,
     MatNativeDateModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatSnackBarModule,
+    
+    
 
 
 
